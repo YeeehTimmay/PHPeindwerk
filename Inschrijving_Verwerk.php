@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo "<html><head></head>";
 $link = mysqli_connect("localhost","trainer","penalty","voetbal");
 if($link){
@@ -45,12 +46,40 @@ if (isset($_POST['voorwaarden'])) {
     $query ="insert into `inschrijving20192020`(`voornaam`, `naam`, `ploeg`, `wedstrijdkledij`, `bal`, `trainingspak`) values ('$Voornaam','$Naam','$Ploeg','$Wedstrijd','$Bal','$Training')";
 
     if(mysqli_query($link, $query)){
+      $query = "select  `item`, `prijs` from `prijzen` where `item` = 'inschrijvingsgeld'  ";
+      $result = mysqli_query($link,$query);
+      $row = mysqli_fetch_assoc($result);
+      $inschrijvingsgeld = $row['prijs'];
+      $query = "select  `item`, `prijs` from `prijzen` where `item` = 'wedstrijdkledij'";
+      $result = mysqli_query($link,$query);
+      $row = mysqli_fetch_assoc($result);
+      $Wedstrijdkledij = $row['prijs'] ;
+      $query = "select  `item`, `prijs` from `prijzen` where `item` = 'trainingspak'  ";
+      $result = mysqli_query($link,$query);
+      $row = mysqli_fetch_assoc($result);
+      $trainingspakgeld = $row['prijs'];
+      $query = "select  `item`, `prijs` from `prijzen` where `item` = 'balprijs'";
+      $result = mysqli_query($link,$query);
+      $row = mysqli_fetch_assoc($result);
+      $balprijs = $row['prijs'];
+      $beide = $trainingspakgeld+$Wedstrijdkledij;
+      $totaal = $inschrijvingsgeld;
+      if ($Training == 1 ) {
+        $totaal = $totaal + $trainingspakgeld;
+      }
+      if ($Wedstrijd == 1) {
+        $totaal = $totaal + $Wedstrijdkledij;
+      }
+      if ($Bal == 1) {
+        $totaal =$totaal + $balprijs;
+      }
       echo "Record toegevoegd<br>";
       echo "$Voornaam,$Naam<br>";
       echo "Ploeg: $Ploeg<br>";
       echo "Trainingspak: $Training<br>";
       echo "Wedstrijdkledij: $Wedstrijd<br>";
       echo "Bal: $Bal<br>";
+      echo "Totaal: $totaal";
     }
     else{
       echo "Fout bij het toevoegen: ".mysqli_error($link);

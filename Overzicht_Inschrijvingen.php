@@ -1,5 +1,5 @@
 <?php
-echo "<html><head><title>Overzicht</title></head><body>";
+echo "<html><head><title>Overzicht</title><h1>OVERZICHT</h1></head><body>";
 $link = mysqli_connect("localhost","trainer","penalty","voetbal");
 if ($link) {
   echo "Verbinding geslaagd voor 'voetbal'.<br><br>";
@@ -58,7 +58,6 @@ if ($link) {
   $row = mysqli_fetch_assoc($result);
   $baltotaal = $row['NumberOfProducts'];
   echo "Aantal bestelde ballen:".$row['NumberOfProducts']."<br>";
-  $query = "select count(id) as NumberOfProducts from inschrijving20192020  ";
   $query = "select  `item`, `prijs` from `prijzen` where `item` = 'inschrijvingsgeld'  ";
   $result = mysqli_query($link,$query);
   $row = mysqli_fetch_assoc($result);
@@ -75,6 +74,7 @@ if ($link) {
   $result = mysqli_query($link,$query);
   $row = mysqli_fetch_assoc($result);
   $balprijs = $row['prijs'];
+  $query = "select count(id) as NumberOfProducts from inschrijving20192020  ";
   $result = mysqli_query($link,$query);
   $row = mysqli_fetch_assoc($result);
   echo "Hoeveelheid inschrijvingsgeld:".$row['NumberOfProducts'] * $inschrijvingsgeld;

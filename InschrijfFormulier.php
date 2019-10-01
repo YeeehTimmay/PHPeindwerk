@@ -1,4 +1,6 @@
 <?php
+echo "<html>";
+echo "<head><title>Inschrijven</title><h1>Inschrijven</h1></head>";
 session_start();
 $link = mysqli_connect("localhost","trainer","penalty","voetbal");
 if ($link) {
@@ -20,8 +22,7 @@ if ($link) {
   $balprijs = $row['prijs'];
   $beide = $trainingspakgeld+$Wedstrijdkledij;
 
-  echo "<html>";
-  echo "<head><title>Inschrijven</title><h1>Inschrijven</h1></head>";
+
   echo "<body>";
   echo '<form action="Inschrijving_Verwerk.php" method="post">';
   echo 'Naam: <input type = "text" size="30" name="naam"required = "required"><br>';

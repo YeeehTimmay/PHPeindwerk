@@ -21,8 +21,8 @@ if ($link) {
   $beide = $trainingspakgeld+$Wedstrijdkledij;
 
   echo "<html>";
-  echo "<head><title>Inschrijven</title><h1>Inschrijven</h1></head>";
-  echo "<body>";
+  echo "<head><title>Inschrijven</title><h1>Inschrijven</h1>";
+  echo '<link rel="stylesheet" type="text/css" href="style.css"></head><body>';
   echo '<form action="Inschrijving_Verwerk.php" method="post">';
   echo 'Naam: <input type = "text" size="30" name="naam"required = "required"><br>';
   echo 'Voornaam: <input type = "text" size = "30" name="voornaam" required ="required"><br>';
@@ -58,7 +58,7 @@ else {
   echo "Verbinding mislukt:";
   echo mysqli_connect_error();
 }
-
+echo "<a href= Index.php>Terug naar eerste pagina</a>";
 
 
 

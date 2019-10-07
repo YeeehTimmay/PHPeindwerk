@@ -4,15 +4,15 @@ if ($_SESSION['login'] == false) {
   header('Refresh:0; URL=login.php');
 }
 else {
-  echo "<html><head><title>PRIJZEN</title><h1>PRIJZEN</h1></head><body>";
+  echo "<html><head><title>PRIJZEN</title><h1>PRIJZEN</h1>";
+  echo '<link rel="stylesheet" type="text/css" href="style.css"></head><body>';
   $link = mysqli_connect("localhost","trainer","penalty","voetbal");
   if ($link) {
-    echo "Verbinding geslaagd voor 'voetbal'.<br><br>";
     echo '<form action="Inschrijving_Prijzen.php" method="post">';
     echo 'Prijs inschrijving: <input type = "text" size="30" name="inschrijving"required = "required"><br>';
     echo 'Prijs trainingspak: <input type = "text" size = "30" name="trainingspak" required ="required"><br>';
     echo 'Prijs Wedstrijdkledij: <input type = "text" size="30" name="wedstrijdkledij"required = "required"><br>';
-    echo 'Prijs bal: <input type = "text" size = "30" name="balprijs" required ="required"><br>';
+    echo 'Prijs bal: <input type = "text" size = "30" name="balprijs" required ="required"><br></form>';
     echo '<input type="submit" value="Aanpassen"> ';
   }
   if (isset($_POST['inschrijving']) and (isset($_POST['trainingspak'])) and (isset($_POST['wedstrijdkledij'])) and (isset($_POST['balprijs']))){
@@ -40,7 +40,7 @@ if (mysqli_query($link,$query)) {
 }
 }
 }
-
+echo "<br><a href= Index.php>Terug naar eerste pagina</a>";
 
 
 

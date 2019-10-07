@@ -1,9 +1,10 @@
 <?php
 session_start();
 echo "<html><head></head>";
+echo '<link rel="stylesheet" type="text/css" href="style.css"><body>';
 $link = mysqli_connect("localhost","trainer","penalty","voetbal");
 if($link){
-echo "Verbinding geslaagd voor 'voetbal'.<br><br>";
+
 if (isset($_POST['naam']) and (isset($_POST['voornaam']))) {
   $Naam = $_POST['naam'];
   $Voornaam = $_POST["voornaam"];
@@ -99,23 +100,6 @@ else{
 echo "Verbinding mislukt:";
 echo mysqli_connect_error();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-echo "</html>";
+echo "<br><a href= Index.php>Terug naar eerste pagina</a>";
+echo "</body></html>";
 ?>

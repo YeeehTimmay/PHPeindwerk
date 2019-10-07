@@ -1,0 +1,25 @@
+body {
+  background-color: beige;
+  font-size: 18;
+}
+h1 {
+  color: darkblue;
+  text-align: center;
+}
+p {
+  font-family:"Times New Roman", Times,serif;
+  font-size: 18;
+}
+form {
+  font-family:arial;
+  font-size: 18;
+}
+select {
+  font-family:arial;
+}
+option {
+  font-family:arial;
+}
+a {
+  font-size: 25;
+}

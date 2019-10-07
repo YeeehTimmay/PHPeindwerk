@@ -4,7 +4,8 @@ if ( $_SESSION['login'] == false) {
   header('Refresh:0; URL=login.php');
 }
 else {
-  echo "<html><head><title>Verwijderen</title><h1>INSCHRIJVING ANNULEREN</h1></head><body>";
+  echo "<html><head><title>Verwijderen</title><h1>INSCHRIJVING ANNULEREN</h1>";
+  echo '<link rel="stylesheet" type="text/css" href="style.css"></head><body>';
   echo "<form action=\"Verwijderen_Inschrijvingen.php\" method=\"Post\">";
   echo "Naam: <input type=\"text\" size=\"30\" name=\"naam\" ><br>";
   echo "Voornaam: <input type = \"text\" size = \"30\" name=\"voornaam\"><br>";
@@ -52,6 +53,8 @@ else {
   }
   }
   }
+  echo "<a href= Index.php>Terug naar eerste pagina</a>";
+  echo "</body></html>";
 
 }
  ?>

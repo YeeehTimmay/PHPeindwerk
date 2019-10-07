@@ -4,10 +4,11 @@ if ($_SESSION['login'] == false) {
   header('Refresh:0; URL=login.php');
 }
 else {
-  echo "<html><head><title>Overzicht</title><h1>OVERZICHT</h1></head><body>";
+  echo "<html><head><title>Overzicht</title><h1>OVERZICHT</h1>";
+  echo '<link rel="stylesheet" type="text/css" href="style.css"></head><body>';
   $link = mysqli_connect("localhost","trainer","penalty","voetbal");
   if ($link) {
-    echo "Verbinding geslaagd voor 'voetbal'.<br><br>";
+
     $query = "select count(ploeg) as NumberOfProducts from inschrijving20192020 where ploeg = 'u6' ";
     $result = mysqli_query($link,$query);
     $row = mysqli_fetch_assoc($result);
@@ -90,7 +91,7 @@ else {
     echo "Verbinding mislukt:";
     echo mysqli_connect_error();
   }
-
+  echo "<br><a href= Index.php>Terug naar eerste pagina</a>";
   echo "</body></html>";
 }
 

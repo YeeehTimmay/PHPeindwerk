@@ -23,3 +23,16 @@ option {
 a {
   font-size: 25;
 }
+button.right {
+  font-size: 18;
+  position: absolute;
+  top: 10px;
+  right: 18px;
+
+}
+button{
+  font-size: 18;
+}
+input{
+  font-size: 18;
+}

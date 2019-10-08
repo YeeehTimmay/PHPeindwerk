@@ -19,13 +19,13 @@ if ($link) {
   $row = mysqli_fetch_assoc($result);
   $balprijs = $row['prijs'];
   $beide = $trainingspakgeld+$Wedstrijdkledij;
-
   echo "<html>";
   echo "<head><title>Inschrijven</title><h1>Inschrijven</h1>";
   echo '<link rel="stylesheet" type="text/css" href="style.css"></head><body>';
   echo '<form action="Inschrijving_Verwerk.php" method="post">';
-  echo 'Naam: <input type = "text" size="30" name="naam"required = "required"><br>';
-  echo 'Voornaam: <input type = "text" size = "30" name="voornaam" required ="required"><br>';
+  echo 'Naam: <input type = "text" class = "textbox" size="30" name="naam"required = "required" ><br>';
+  echo 'Voornaam: <input type = "text" size = "30" class = "textbox" name="voornaam" required ="required" ><br>';
+  echo 'Geboortedatum: <input type = "date" size = "30" class = "textbox" name="geboorte" required="required"><br>"';
   echo 'Ploeg: <select name="ploeg">';
   echo '<option value="">kies ploeg</option>';
   echo '<option value="u6">U6</option>';
@@ -49,7 +49,7 @@ if ($link) {
 
   echo '<br>Trainingsbal nodig ('.$balprijs.'€)?<input type="checkbox" name ="bal" value "off">';
   echo '<br>Ik accepteer de algemene voorwarden<input type="checkbox" name = "voorwaarden" >';
-  echo '<input type="submit" value="verzenden">';
+  echo '<br><input type="submit" value="verzenden">';
   echo "</form>";
   echo "</body></html>";
 
@@ -58,7 +58,7 @@ else {
   echo "Verbinding mislukt:";
   echo mysqli_connect_error();
 }
-echo "<a href= Index.php>Terug naar eerste pagina</a>";
+echo "<br><a href= Index.php>Terug naar eerste pagina</a>";
 
 
 

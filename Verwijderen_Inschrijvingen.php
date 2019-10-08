@@ -7,8 +7,8 @@ else {
   echo "<html><head><title>Verwijderen</title><h1>INSCHRIJVING ANNULEREN</h1>";
   echo '<link rel="stylesheet" type="text/css" href="style.css"></head><body>';
   echo "<form action=\"Verwijderen_Inschrijvingen.php\" method=\"Post\">";
-  echo "Naam: <input type=\"text\" size=\"30\" name=\"naam\" ><br>";
-  echo "Voornaam: <input type = \"text\" size = \"30\" name=\"voornaam\"><br>";
+  echo "Naam: <input type=\"text\" class = \"textbox\" size=\"30\" name=\"naam\" ><br>";
+  echo "Voornaam: <input type = \"text\" class = \"textbox\"size = \"30\" name=\"voornaam\"><br>";
   echo 'Ploeg: <select name="ploeg">';
   echo '<option value="">kies ploeg</option>';
   echo '<option value="u6">U6</option>';
@@ -22,7 +22,7 @@ else {
   echo '<option value="u15">U15</option>';
   echo '<option value="u17">U17</option>';
   echo '</select>';
-  echo "<input type=\"submit\" value=\"Verwijderen\">";
+  echo "<br><input type=\"submit\" value=\"Verwijderen\">";
   echo "</form>";
   if (isset($_POST['naam']) and (isset($_POST['voornaam'])) and (isset($_POST['ploeg']))){
     $Naam = $_POST['naam'];
@@ -34,7 +34,7 @@ else {
 
   $link = mysqli_connect("localhost","trainer","penalty","voetbal");
   if ($link) {
-    echo "Verbinding geslaagd voor 'voetbal'.<br><br>";
+    echo "<br><br>";
     $query = "select count(*) as NumberOfProducts from inschrijving20192020 where naam= '$Naam' and voornaam = '$Voornaam' and ploeg = '$Ploeg'  ";
     $result = mysqli_query($link,$query);
     $row = mysqli_fetch_assoc($result);
@@ -53,7 +53,7 @@ else {
   }
   }
   }
-  echo "<a href= Index.php>Terug naar eerste pagina</a>";
+  echo "<br><a href= Index.php>Terug naar eerste pagina</a>";
   echo "</body></html>";
 
 }

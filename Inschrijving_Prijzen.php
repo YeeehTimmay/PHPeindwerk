@@ -9,10 +9,10 @@ else {
   $link = mysqli_connect("localhost","trainer","penalty","voetbal");
   if ($link) {
     echo '<form action="Inschrijving_Prijzen.php" method="post">';
-    echo 'Prijs inschrijving: <input type = "text" size="30" name="inschrijving"><br>';
-    echo 'Prijs trainingspak: <input type = "text" size = "30" name="trainingspak" ><br>';
-    echo 'Prijs Wedstrijdkledij: <input type = "text" size="30" name="wedstrijdkledij"><br>';
-    echo 'Prijs bal: <input type = "text" size = "30" name="balprijs" ><br>';
+    echo 'Prijs inschrijving: <input type = "text" class = "textbox" size="30" name="inschrijving"><br>';
+    echo 'Prijs trainingspak: <input type = "text" class = "textbox" size = "30" name="trainingspak" ><br>';
+    echo 'Prijs Wedstrijdkledij: <input type = "text" class = "textbox" size="30" name="wedstrijdkledij"><br>';
+    echo 'Prijs bal: <input type = "text" size = "30" class = "textbox" name="balprijs" ><br>';
     echo '<input type="submit" value="Aanpassen"></form> ';
   }
   if (isset($_POST['inschrijving']) and (isset($_POST['trainingspak'])) and (isset($_POST['wedstrijdkledij'])) and (isset($_POST['balprijs']))){
@@ -25,7 +25,7 @@ else {
     else {
       $query = "update `prijzen` set `item`='balprijs',`prijs`= $PrijsBal where `item`= 'balprijs'";
       if (mysqli_query($link,$query)) {
-        echo "Bal prijs veranderd naar $PrijsBal<br>";
+        echo "<br>Bal prijs veranderd naar $PrijsBal<br>";
       }
     }
       if (empty($PrijsInschrijving)){
